@@ -53,7 +53,7 @@ function decide(playerSelect) {
             whoWin.style.visibility = "visible";
         }
         else if (Number(playerPoints.innerText) === 5 && Number(computerPoints.innerText) < 5) {
-            whoWin.innerText = "Hurrahh! Player Won!!!";
+            whoWin.innerText = "Hurrahh! You Won!!!";
             whoWin.style.visibility = "visible";
         }
         else if (Number(playerPoints.innerText) === 5 && Number(computerPoints.innerText) === 5) {
@@ -71,8 +71,10 @@ startButton.addEventListener('click', () => {
 });
 
 restartButton.addEventListener('click', () => {
-    const noOfPoints = '0';
-    resetGame('restart', computerPoints, playerPoints, noOfPoints, computerOutcome, playerOutcome, whoWin);
+    if(gameStart){
+        const noOfPoints = '0';
+        resetGame('restart', computerPoints, playerPoints, noOfPoints, computerOutcome, playerOutcome, whoWin);
+    }
 });
 
 quitButton.addEventListener('click', () => {

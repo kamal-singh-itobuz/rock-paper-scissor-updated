@@ -21,14 +21,14 @@ function pointIncrement(playerOutcome, playerSelectURL, computerOutcome, compute
     if (whosePoint) whosePoint.innerText = Number(whosePoint.innerText) + 1;
 }
 
-function resetGame(whichButton, computerPoints, playerPoints, noOfPoints, computerOutcome, playerOutcome, whoWin) {
+function resetGame(whichButton, computerPoints, playerPoints, noOfPoints, whoWin, computerOutcome, playerOutcome) {
     computerPoints.innerText = noOfPoints;
     playerPoints.innerText = noOfPoints;
     if (whichButton === 'restart' || whichButton === 'quit') {
         computerOutcome.style.display = "none";
         playerOutcome.style.display = "none";
-        whoWin.style.visibility = "hidden";
     }
+    whoWin.style.visibility = "hidden";
 }
 
 function decide(playerSelect) {
@@ -67,20 +67,20 @@ function decide(playerSelect) {
 startButton.addEventListener('click', () => {
     gameStart = true;
     const noOfPoints = '0';
-    resetGame('start', computerPoints, playerPoints, noOfPoints);
+    resetGame('start', computerPoints, playerPoints, noOfPoints, whoWin);
 });
 
 restartButton.addEventListener('click', () => {
-    if(gameStart){
+    if (gameStart) {
         const noOfPoints = '0';
-        resetGame('restart', computerPoints, playerPoints, noOfPoints, computerOutcome, playerOutcome, whoWin);
+        resetGame('restart', computerPoints, playerPoints, noOfPoints, whoWin, computerOutcome, playerOutcome);
     }
 });
 
 quitButton.addEventListener('click', () => {
     gameStart = false;
     const noOfPoints = '_';
-    resetGame('quit', computerPoints, playerPoints, noOfPoints, computerOutcome, playerOutcome, whoWin);
+    resetGame('quit', computerPoints, playerPoints, noOfPoints, whoWin, computerOutcome, playerOutcome);
 });
 
 playerChoice.addEventListener('click', (e) => {
